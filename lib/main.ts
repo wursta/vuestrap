@@ -1,0 +1,1 @@
+export {default as VsAlert} from "./components/Alert/VsAlert.vue"
