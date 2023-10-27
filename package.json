@@ -13,7 +13,6 @@
     "dev": "vite",
     "preview": "vite preview",
     "type-check": "vue-tsc",
-    "lint-help": "eslint --help",
     "lint": "eslint --ext .ts,vue --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ext .ts,vue --ignore-path .gitignore ."
   },
