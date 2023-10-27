@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import {resolve} from "path"
 import {defineConfig} from "vite"
 import vue from "@vitejs/plugin-vue"
@@ -11,8 +12,8 @@ export default defineConfig({
         lib: {
             entry: resolve(__dirname, "lib/main.ts"),
             formats: ["es"],
-            name: "ExtVueBootstrap",
-            fileName: "ext-vue-bootstrap",
+            name: "Vuestrap",
+            fileName: "vuestrap-bootstrap",
         },
         rollupOptions: {
             external: ["vue"],
@@ -31,5 +32,12 @@ export default defineConfig({
         alias: {
             "@lib": fileURLToPath(new URL("./lib/main.ts", import.meta.url))
         }
+    },
+    test: {
+        environment: "happy-dom",
+        coverage: {
+            provider: "v8",
+            reporter: ["text"],
+        },
     }
 })
