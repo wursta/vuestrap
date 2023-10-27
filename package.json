@@ -12,8 +12,10 @@
     "build": "vue-tsc --p ./tsconfig-build.json && vite build",
     "dev": "vite",
     "preview": "vite preview",
-    "eslint": "eslint --ext .ts,vue --ignore-path .gitignore .",
-    "eslint:fix": "eslint --fix --ext .ts,vue --ignore-path .gitignore ."
+    "type-check": "vue-tsc",
+    "lint-help": "eslint --help",
+    "lint": "eslint --ext .ts,vue --ignore-path .gitignore .",
+    "lint:fix": "eslint --fix --ext .ts,vue --ignore-path .gitignore ."
   },
   "devDependencies": {
     "@types/node": "^20.8.8",
@@ -23,7 +25,8 @@
     "@vue/eslint-config-typescript": "^12.0.0",
     "bootstrap": "^5.3.2",
     "eslint": "^8.52.0",
-    "eslint-plugin-vue": "^9.18.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-vue": "^9.18.1",
     "sass": "^1.69.4",
     "typescript": "^5.2.2",
     "vite": "^4.4.5",
