@@ -1,4 +1,5 @@
 export interface Props {
     variant: string,
-    dismissible?: boolean
+    dismissible?: boolean,
+    closeBtnTitle?: string
 }

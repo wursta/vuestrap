@@ -1,7 +1,7 @@
 <template>
   <div :class="classes" role="alert">
     <slot></slot>
-    <button v-if="dismissible" type="button" class="btn-close" aria-label="Close"></button>
+    <button v-if="dismissible" type="button" class="btn-close" aria-label="Close" :title="closeBtnTitle"></button>
   </div>
 </template>
 
@@ -11,7 +11,8 @@ import {computed} from "vue"
 
 const props = withDefaults(defineProps<Props>(), {
     variant: "info",
-    dismissible: false
+    dismissible: false,
+    closeBtnTitle: "Close"
 })
 
 const classes = computed(() => [
