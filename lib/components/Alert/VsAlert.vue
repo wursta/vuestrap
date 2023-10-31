@@ -1,5 +1,5 @@
 <template>
-  <Transition :name="transitionName">
+  <Transition name="fade" :css="animate">
     <div v-if="show" :class="classes" role="alert">
       <slot></slot>
       <button
@@ -14,7 +14,6 @@ import {Props} from "./Props"
 import {computed} from "vue"
 import useLocale from "../../composables/useLocale"
 import {Events} from "./Events"
-import useTransition from "../../composables/useTransition"
 import {AnimateProps} from "../AnimateProps"
 
 const props = withDefaults(defineProps<Props & AnimateProps>(), {
@@ -26,7 +25,6 @@ const props = withDefaults(defineProps<Props & AnimateProps>(), {
 const emit = defineEmits<Events>()
 
 const {locale, computeLocaleText} = useLocale()
-const {computeTransName} = useTransition(props)
 
 const classes = computed(() => [
     "alert",
@@ -36,26 +34,21 @@ const classes = computed(() => [
     }
 ])
 
-const transitionName = computeTransName("alert")
-
 // Close button
 const localCloseBtnTitle = computeLocaleText(props.closeBtnTitle, locale.close)
 const onCloseBtnHandler = () => {
-    if (!props.dismissible) {
-        return
-    }
     emit("update:show", false)
 }
 </script>
 
 <style lang="scss" scoped>
-.alert-enter-active,
-.alert-leave-active {
-  transition: opacity 0.5s ease;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
 }
 
-.alert-enter-from,
-.alert-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

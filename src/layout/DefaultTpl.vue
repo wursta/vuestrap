@@ -1,5 +1,5 @@
 <template>
-  <MainNavigationBar />
+<!--  <MainNavigationBar />-->
 <!--  <div class="container-xxl bd-gutter mt-3 my-md-4 main-layout">-->
 <!--    <aside class="main-layout_sidebar">-->
 <!--      <ContentsNavigationBar />-->
@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import MainNavigationBar from "../components/MainNavigationBar.vue"
+// import MainNavigationBar from "../components/MainNavigationBar.vue"
 import ContentsNavigationBar from "../components/ContentsNavigationBar.vue"</script>
 
 <style lang="scss" scoped>
