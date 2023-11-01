@@ -9,6 +9,10 @@ const routes = [
             {
                 path: "components/alerts",
                 component: () => import("../pages/components/AlertsDocs.vue")
+            },
+            {
+                path: "components/tabs",
+                component: () => import("../pages/components/TabsDocs.vue")
             }
         ]
     }
