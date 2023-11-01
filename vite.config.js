@@ -37,7 +37,7 @@ export default defineConfig({
         environment: "happy-dom",
         coverage: {
             provider: "v8",
-            reporter: ["text"],
+            reporter: ["text", "json-summary", "json"],
         },
     }
 })

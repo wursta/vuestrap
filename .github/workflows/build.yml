@@ -31,8 +31,21 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-      - run: npm i
-      - run: npm run lint
-      - run: npm run type-check
-      - run: npm run test
-      - run: npm run build
+
+      - name: 'Install deps'
+        run: npm i
+
+      - name: 'Lint'
+        run: npm run lint
+
+      - name: 'Type check'
+        run: npm run type-check
+
+      - name: 'Test'
+        run: npm run coverage
+
+      - name: 'Build'
+        run: npm run build
+
+      - name: 'Report Coverage'
+        uses: davelosert/vitest-coverage-report-action@v2
