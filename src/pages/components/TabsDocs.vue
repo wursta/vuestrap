@@ -33,7 +33,7 @@
 import {VsTabs, VsTab} from "@lib"
 import {ref} from "vue"
 
-const additionalTabs = ref([])
+const additionalTabs = ref<{title: string, content: string}[]>([])
 
 const addTab = () => {
     additionalTabs.value.push({
