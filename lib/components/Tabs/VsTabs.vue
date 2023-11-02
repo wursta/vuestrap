@@ -1,20 +1,37 @@
 <template>
-  <ul class="nav nav-tabs" role="tablist">
-    <li v-for="(tab, i) in tabs" :key="`tab_${i}`" class="nav-item" role="presentation">
-      <button v-if="!tab.titleComponent" class="nav-link" :class="{'active': tab.active}">
-        {{ tab.title }}
-      </button>
-      <component :is="tab.titleComponent" v-else :active="tab.active"></component>
-    </li>
-  </ul>
-  <div class="tab-content">
+  <component :is="tag" class="nav nav-tabs" :class="navClasses" role="tablist">
     <slot/>
+  </component>
+  <div class="tab-content">
+    <div
+        v-for="tab in tabsModel.tabs"
+        :key="`tab_${tab.id}`"
+        class="tab-pane"
+        :class="{'active': tabsModel.activeId === tab.id}" role="tabpanel">
+      <component :is="tab.content"/>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import {provide, ref} from "vue"
+import {computed, provide, reactive} from "vue"
+import {TabsProps} from "./Props"
+import {DynamicTagProps} from "../DynamicTagProps"
+import {CommonHtmlTagProps} from "../CommonHtmlTagProps"
+import {VsTabsModel} from "./VsTabs.model"
 
-const tabs = ref([])
-provide("tabs-list", tabs)
+const props = withDefaults(defineProps<TabsProps & DynamicTagProps & CommonHtmlTagProps>(), {
+    tag: "ul"
+})
+
+const navClasses = computed(() => {
+    const c: { [key: string]: boolean } = {}
+    if (props.class) {
+        c[props.class] = true
+    }
+    return c
+})
+
+const tabsModel = reactive(new VsTabsModel())
+provide("vsTabsModel", tabsModel)
 </script>
