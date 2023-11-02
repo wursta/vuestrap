@@ -47,5 +47,5 @@ jobs:
       - name: 'Build'
         run: npm run build
 
-#      - name: 'Report Coverage'
-#        uses: davelosert/vitest-coverage-report-action@v2
+      - name: 'Report Coverage'
+        uses: davelosert/vitest-coverage-report-action@v2
