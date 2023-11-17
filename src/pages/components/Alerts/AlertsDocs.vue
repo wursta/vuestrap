@@ -84,7 +84,6 @@ const animateExampleCode = `<vs-alert v-model:show="show" variant="success" :ani
 </vs-alert>`
 
 // Example: Visibility & v-model:show
-const isVisible = ref(true)
 const isVisibleModel = ref(true)
 
 // Example: Dismissing
