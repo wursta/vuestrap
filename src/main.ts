@@ -33,7 +33,7 @@ if (htmlEl) {
         htmlEl.setAttribute("data-bs-theme", "light")
     }
 }
-darkModeStore.$subscribe((mutation, state) => {
+darkModeStore.$subscribe((_mutation, state) => {
     if (!htmlEl) {
         return
     }
