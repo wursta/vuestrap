@@ -1,6 +1,6 @@
 import {computed, inject} from "vue"
 import {Locale} from "../types/Locale"
-import {enUSLocale} from "@lib"
+import {enUSLocale} from "../locale"
 
 export default function useLocale() {
     const locale = inject<Locale>("vuestrap-locale", enUSLocale)

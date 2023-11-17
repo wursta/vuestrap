@@ -1,10 +1,19 @@
 <template>
   <h1>Tabs</h1>
-  <hr/>
+
+  <h2>Overview</h2>
+  <SimpleTabsExample />
+
+  <h2 class="mt-5">Pills</h2>
+  <PillsTabsExample />
+
   <vs-tabs tag="div">
-    <vs-tab active tag="div">
+    <vs-tab tag="div" active>
       <template #title="{ active, click }">
         <button class="nav-link" :class="{'active': active}" @click="click">
+          <span v-if="active" class="spinner-grow spinner-grow-sm" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </span>
           Tab 1 with slot
         </button>
       </template>
@@ -24,14 +33,18 @@
       {{ tab.content }}
     </vs-tab>
     <div class="nav-item ms-auto">
-      <button class="btn btn-primary" @click="addTab">Add</button>
+      <button class="btn btn-outline-primary" @click="addTab">Add</button>
     </div>
   </vs-tabs>
+
+  Content after
 </template>
 
 <script setup lang="ts">
 import {VsTabs, VsTab} from "@lib"
 import {ref} from "vue"
+import SimpleTabsExample from "./SimpleTabsExample.vue"
+import PillsTabsExample from "./PillsTabsExample.vue"
 
 const additionalTabs = ref<{title: string, content: string}[]>([])
 

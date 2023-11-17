@@ -1,39 +1,32 @@
 <template>
-<!--  <MainNavigationBar />-->
-<!--  <div class="container-xxl bd-gutter mt-3 my-md-4 main-layout">-->
-<!--    <aside class="main-layout_sidebar">-->
-<!--      <ContentsNavigationBar />-->
-<!--    </aside>-->
-<!--    <main class="main-layout_center">-->
-<!--      <router-view></router-view>-->
-<!--    </main>-->
-<!--  </div>-->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-2">
-        <ContentsNavigationBar />
+  <MainNavigationBar/>
+  <div class="container-xxl mt-3 my-md-4 vuestrap-docs-layout">
+    <aside class="vuestrap-docs-sidebar">
+      <div
+          class="offcanvas-lg offcanvas-end"
+          :class="{'show': contentSidebarStore.sidebarShow, 'hiding': !contentSidebarStore.sidebarShow}">
+        <div class="offcanvas-header border-bottom">
+          <h5 class="offcanvas-title">Browse docs</h5>
+          <button type="button" class="btn-close" @click="toggleContentSidebar"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ContentsNavigationBar/>
+        </div>
       </div>
-      <div class="col">
-        <router-view></router-view>
-      </div>
-    </div>
+    </aside>
+    <main class="vuestrap-docs-main order-1">
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 
 <script setup lang="ts">
-// import MainNavigationBar from "../components/MainNavigationBar.vue"
-import ContentsNavigationBar from "../components/ContentsNavigationBar.vue"</script>
+import MainNavigationBar from "../components/MainNavigationBar.vue"
+import ContentsNavigationBar from "../components/ContentsNavigationBar.vue"
+import {useContentSidebarStore} from "../stores/ContentSidebarStore"
 
-<style lang="scss" scoped>
-.main-layout {
-  display: flex;
-
-  &_sidebar {
-    width: 15rem;
-  }
-
-  &_center {
-    flex: 1
-  }
+const contentSidebarStore = useContentSidebarStore()
+const toggleContentSidebar = () => {
+    contentSidebarStore.sidebarShow = !contentSidebarStore.sidebarShow
 }
-</style>
+</script>

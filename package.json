@@ -1,17 +1,17 @@
 {
-  "name": "ext-vue-bootstrap",
+  "name": "vuestrap-b5",
   "version": "0.0.0",
-  "private": true,
   "type": "module",
-  "main": "dist/ext-vue-bootstrap.js",
-  "types": "dist/main.d.ts",
+  "main": "dist/vue-bootstrap.js",
+  "types": "dist/vue-bootstrap.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "vue-tsc --p ./tsconfig-build.json && vite build",
+    "build-site": "vite -c vite.site.config.js build",
     "dev": "vite",
-    "preview": "vite preview",
+    "preview": "vite -c vite.site.config.js preview",
     "type-check": "vue-tsc",
     "lint": "eslint --ext .ts,vue --ignore-path .gitignore --max-warnings=0 .",
     "lint:fix": "eslint --fix --ext .ts,vue --ignore-path .gitignore .",
@@ -19,6 +19,7 @@
     "coverage": "vitest run --coverage"
   },
   "devDependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
     "@types/node": "^20.8.8",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
@@ -26,11 +27,12 @@
     "@vitest/coverage-v8": "^0.34.6",
     "@vue/eslint-config-typescript": "^12.0.0",
     "@vue/test-utils": "^2.4.1",
-    "bootstrap": "^5.3.2",
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-vue": "^9.18.1",
     "happy-dom": "^12.10.2",
+    "highlight.js": "^11.9.0",
+    "pinia": "^2.1.7",
     "sass": "^1.69.4",
     "typescript": "^5.2.2",
     "vite": "^4.4.5",

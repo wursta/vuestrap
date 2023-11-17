@@ -1,0 +1,51 @@
+html[data-bs-theme="light"] {
+  body {
+    background-color: $vuestrap-docs-body-bg;
+  }
+
+  .vsdocs-main-navbar {
+    background-color: $vuestrap-docs-body-bg;
+  }
+}
+
+.vuestrap-docs {
+  &-layout {
+    --bs-gutter-x: 3rem;
+  }
+  &-main {
+    grid-area: main;
+    overflow: auto;
+  }
+  &-sidebar {
+    grid-area: sidebar;
+
+    &-nav-section {
+      .icon {
+        width: 1.2rem;
+        height: 1.2rem;
+        transition: transform 0.25s ease;
+      }
+      &:not(.router-link-active) {
+        .icon {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    &-layout {
+      display: grid;
+      grid-template-areas: "sidebar main";
+      grid-template-columns: 1fr 5fr;
+      gap: 1.5rem;
+    }
+    &-sidebar {
+      position: sticky;
+      top: 5rem;
+      display: block;
+      overflow-y: auto;
+      height: calc(100vh - 6rem);
+    }
+  }
+}
