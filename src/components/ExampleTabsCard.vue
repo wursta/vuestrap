@@ -42,7 +42,6 @@
 import {VsTab, VsTabs} from "@lib"
 import EyeIcon from "../icons/EyeIcon.vue"
 import CodeIcon from "../icons/CodeIcon.vue"
-import {useRoute, useRouter} from "vue-router"
 
 interface Props {
   title: string
