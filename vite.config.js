@@ -26,7 +26,7 @@ export default defineConfig({
     },
     plugins: [
         vue(),
-        dts({include: ["lib"]}),
+        dts({include: ["lib"], rollupTypes: true}),
     ],
     resolve: {
         alias: {
