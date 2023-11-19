@@ -7,11 +7,15 @@ const routes = [
         component: DefaultTpl,
         children: [
             {
+                path: "plugin/:anchor?",
+                component: () => import("../pages/PluginDocs.vue")
+            },
+            {
                 path: "components/alerts/:anchor?",
                 component: () => import("../pages/components/Alerts/AlertsDocs.vue")
             },
             {
-                path: "components/tabs",
+                path: "components/tabs/:anchor?",
                 component: () => import("../pages/components/Tabs/TabsDocs.vue")
             }
         ]

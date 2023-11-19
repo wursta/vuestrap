@@ -2,6 +2,26 @@
   <nav class="vuestrap-docs-sidebar-nav w-100">
     <ul class="list-unstyled mb-0 pb-3 pb-md-2 pe-lg-2">
       <li class="py-2">
+        <h3 class="h5 mb-1 pb-2">Getting started</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <router-link to="/plugin" class="nav-link px-0 py-2 vuestrap-docs-sidebar-nav-section" @click="toggleContentSidebar">
+              <NavigationArrowIcon class="icon"/>
+              Plugin
+            </router-link>
+            <ul
+                v-if="isRouteStartsWith('/plugin')"
+                class="nav flex-column border-start ps-3 ms-2 mb-2">
+              <li class="nav-item">
+                <router-link to="/plugin/install" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Install</router-link>
+                <router-link to="/plugin/locale" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Locale</router-link>
+                <router-link to="/plugin/options" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Options</router-link>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="py-2">
         <h3 class="h5 mb-1 pb-2">Components</h3>
         <ul class="nav flex-column">
           <li class="nav-item">

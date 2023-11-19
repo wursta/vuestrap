@@ -2,13 +2,13 @@
   <h1>Alerts</h1>
   <p class="text-body-secondary">Provide contextual feedback messages for typical user actions.</p>
 
-  <ExampleCard section-id="basic-example" title="Basic example" :code="basicExampleCode">
+  <ExampleTabsCard section-id="basic-example" title="Basic example" :code="basicExampleCode">
     <div v-for="variant in variants" :key="variant">
       <vs-alert :variant="variant">A simple {{ variant }} alert—check it out!</vs-alert>
     </div>
-  </ExampleCard>
+  </ExampleTabsCard>
 
-  <ExampleCard section-id="visibility" title="Visibility" :code="visibilityExampleCode">
+  <ExampleTabsCard section-id="visibility" title="Visibility" :code="visibilityExampleCode">
     You can use the <code>v-model</code> directive to create two-way data bindings on the <code>show</code> prop.
     Useful when you use dismissible because when user closes the alert, your variable will be updated.
     Do not use the show prop when using v-model.
@@ -23,9 +23,9 @@
           longer so that you can see how spacing within an alert works with this kind of content.</p>
       </vs-alert>
     </div>
-  </ExampleCard>
+  </ExampleTabsCard>
 
-  <ExampleCard section-id="dismissing" title="Dismissing" :code="dismissingExampleCode">
+  <ExampleTabsCard section-id="dismissing" title="Dismissing" :code="dismissingExampleCode">
     Using the dismissible prop it's possible to dismiss any <code>vs-alert</code> inline.
     Enabling this prop will add a close X button.
     Also, you can use the <code>close-btn-title</code> prop to change the title text associated with the dismiss button.
@@ -34,30 +34,33 @@
       <vs-alert v-model:show="show" variant="danger" close-btn-title="Ok, close it" dismissible>
         Holy guacamole! You should check in on some of those fields below.
       </vs-alert>
-      <hr />
+      <hr/>
       <div>
         show value: <code>{{ show }}</code>
       </div>
     </div>
-  </ExampleCard>
+  </ExampleTabsCard>
 
-  <ExampleCard section-id="animate" title="Animate" :code="animateExampleCode">
-    <div class="form-check form-switch">
-      <input id="alert-animate" v-model="animate" class="form-check-input" type="checkbox">
-      <label class="form-check-label" for="alert-animate">Use animation</label>
+  <ExampleTabsCard section-id="animate" title="Animate" :code="animateExampleCode">
+    You can disable fading effect with <code>animate</code> prop or disable animation globally with <router-link to="/plugin/options">plugin option</router-link>.
+    <div class="mt-2">
+      <div class="form-check form-switch">
+        <input id="alert-animate" v-model="animate" class="form-check-input" type="checkbox">
+        <label class="form-check-label" for="alert-animate">Use animation</label>
+      </div>
+      <button v-if="!showAnimated" class="btn btn-primary mb-1" @click="showAnimatedAlert">Show again</button>
+      <vs-alert v-model:show="showAnimated" variant="success" :animate="animate" dismissible class="mt-1">
+        It is alert with fading effect...or no?
+      </vs-alert>
     </div>
-    <button v-if="!showAnimated" class="btn btn-primary mb-1" @click="showAnimatedAlert">Show again</button>
-    <vs-alert v-model:show="showAnimated" variant="success" :animate="animate" dismissible class="mt-1">
-      It is alert with fading effect...or no?
-    </vs-alert>
-  </ExampleCard>
+  </ExampleTabsCard>
 </template>
 
 <script setup lang="ts">
 import {VsAlert} from "@lib"
 import {ref} from "vue"
 import useBootstrap from "../../../composables/useBootstrap"
-import ExampleCard from "../../../components/ExampleCard.vue"
+import ExampleTabsCard from "../../../components/ExampleTabsCard.vue"
 
 const {variants} = useBootstrap()
 

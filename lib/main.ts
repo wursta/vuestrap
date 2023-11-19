@@ -6,6 +6,9 @@ const plugin: Plugin = {
     install(app: App, options?: PluginOptions | undefined) {
         const locale = options?.locale ?? enUSLocale
         app.provide("vuestrap-locale", locale)
+
+        const animation = options?.animation ?? true
+        app.provide("vuestrap-animation", animation)
     }
 }
 

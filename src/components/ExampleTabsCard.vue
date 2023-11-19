@@ -7,7 +7,31 @@
       </h2>
       <div class="card-text">
         <div class="mt-4">
-          <slot />
+          <vs-tabs class="mb-3">
+            <vs-tab active>
+              <template #titleText>
+                <div class="d-flex align-items-center">
+                  <EyeIcon class="me-1"/>
+                  Preview
+                </div>
+              </template>
+              <slot />
+            </vs-tab>
+            <vs-tab v-if="code" title="Code">
+              <template #titleText>
+                <div class="d-flex align-items-center">
+                  <CodeIcon class="me-1"/>
+                  Code
+                </div>
+              </template>
+              <div style="position: relative">
+                <highlightjs
+                    language="xml"
+                    :code="code"
+                />
+              </div>
+            </vs-tab>
+          </vs-tabs>
         </div>
       </div>
     </div>
@@ -23,6 +47,7 @@ import {useRoute, useRouter} from "vue-router"
 interface Props {
   title: string
   sectionId: string
+  code?: string
 }
 
 defineProps<Props>()
