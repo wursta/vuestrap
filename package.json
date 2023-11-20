@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "vue-tsc --p ./tsconfig-build.json && vite build",
-    "build-site": "vite -c vite.site.config.js build --base=/vuestrap/",
+    "build-site": "vite -c vite.site.config.js build",
     "dev": "vite",
     "preview": "vite -c vite.site.config.js preview",
     "type-check": "vue-tsc",
