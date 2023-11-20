@@ -1,8 +1,10 @@
 <template>
   <h1>Tabs</h1>
+  <p class="text-body-secondary">Horizontally or vertically stacked list of items. When clicked each item switch content in the tab pane.</p>
 
-  <h2>Overview</h2>
-  <SimpleTabsExample />
+  <ExampleTabsCard section-id="basic-example" title="Basic example">
+    <SimpleTabsExample />
+  </ExampleTabsCard>
 
   <h2 class="mt-5">Pills</h2>
   <PillsTabsExample />
@@ -45,6 +47,7 @@ import {VsTabs, VsTab} from "@lib"
 import {ref} from "vue"
 import SimpleTabsExample from "./SimpleTabsExample.vue"
 import PillsTabsExample from "./PillsTabsExample.vue"
+import ExampleTabsCard from "../../../components/ExampleTabsCard.vue"
 
 const additionalTabs = ref<{title: string, content: string}[]>([])
 

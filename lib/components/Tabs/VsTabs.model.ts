@@ -27,15 +27,11 @@ export class VsTabModel {
 }
 
 export class VsTabsModel {
-    private _tabs :VsTabModel[] = []
+    private readonly _tabs: VsTabModel[] = []
     private _activeId: string = ""
 
     get tabs(): VsTabModel[] {
         return this._tabs
-    }
-
-    set tabs(value: VsTabModel[]) {
-        this._tabs = value
     }
 
     get activeId(): string {

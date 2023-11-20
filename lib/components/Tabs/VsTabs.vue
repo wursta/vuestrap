@@ -2,7 +2,7 @@
   <component :is="tag" class="nav" :class="navClasses" role="tablist">
     <slot/>
   </component>
-  <div class="tab-content">
+  <div v-if="tabsModel.tabs.length > 0" class="tab-content">
     <template
         v-for="tab in tabsModel.tabs"
         :key="`tab_${tab.id}`">
