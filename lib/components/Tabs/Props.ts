@@ -5,5 +5,6 @@ export interface TabsProps {
 export interface TabProps {
     title?: string,
     active?: boolean,
-    disabled?: boolean
+    disabled?: boolean,
+    contentClass?: string
 }
