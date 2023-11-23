@@ -3,6 +3,7 @@ export class VsTabModel {
     private _content: () => void
 
     private _isDisabled: boolean = false
+    private _contentClass: string = ""
 
     constructor(content: () => void) {
         this._id = Math.random().toString()
@@ -23,6 +24,14 @@ export class VsTabModel {
 
     set isDisabled(value: boolean) {
         this._isDisabled = value
+    }
+
+    get contentClass(): string {
+        return this._contentClass
+    }
+
+    set contentClass(value: string) {
+        this._contentClass = value
     }
 }
 

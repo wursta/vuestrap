@@ -37,6 +37,7 @@
                 <router-link to="/components/alerts/visibility" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Visibilty</router-link>
                 <router-link to="/components/alerts/dismissing" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Dismissing</router-link>
                 <router-link to="/components/alerts/animate" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Animate</router-link>
+                <router-link to="/components/alerts/properties" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Component properties</router-link>
               </li>
             </ul>
           </li>
@@ -49,10 +50,10 @@
                 v-if="isRouteStartsWith('/components/tabs')"
                 class="nav flex-column border-start ps-3 ms-2 mb-2 vuestrap-docs-sidebar-nav-subsection">
               <li class="nav-item">
-                <a class="nav-link fs-sm py-1 ps-1 pe-0 mb-1">Basic example</a>
-                <a class="nav-link fs-sm py-1 ps-1 pe-0 mb-1">Visibilty</a>
-                <a class="nav-link fs-sm py-1 ps-1 pe-0 mb-1">Dismissing</a>
-                <a class="nav-link fs-sm py-1 ps-1 pe-0 mb-1">Animate</a>
+                <router-link to="/components/tabs/basic-example" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Basic example</router-link>
+                <router-link to="/components/tabs/custom-tab-title" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Custom tab title</router-link>
+                <router-link to="/components/tabs/dynamic-tabs" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Dynamic tabs</router-link>
+                <router-link to="/components/tabs/properties" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Component properties</router-link>
               </li>
             </ul>
           </li>

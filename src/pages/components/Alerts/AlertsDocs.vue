@@ -54,6 +54,10 @@
       </vs-alert>
     </div>
   </ExampleTabsCard>
+
+  <ExampleCard title="Component properties" section-id="properties">
+    <AlertPropsTable />
+  </ExampleCard>
 </template>
 
 <script setup lang="ts">
@@ -61,6 +65,8 @@ import {VsAlert} from "@lib"
 import {ref} from "vue"
 import useBootstrap from "../../../composables/useBootstrap"
 import ExampleTabsCard from "../../../components/ExampleTabsCard.vue"
+import ExampleCard from "../../../components/ExampleCard.vue"
+import AlertPropsTable from "./AlertPropsTable.vue"
 
 const {variants} = useBootstrap()
 

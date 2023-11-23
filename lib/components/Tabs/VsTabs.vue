@@ -9,12 +9,13 @@
       <Transition name="fade" mode="in-out" :css="animate">
         <div
             v-if="tabsModel.activeId === tab.id"
-            class="tab-pane fade active show" role="tabpanel">
+            class="tab-pane fade active show" role="tabpanel" :class="tab.contentClass">
           <component :is="tab.content"/>
         </div>
       </Transition>
     </template>
   </div>
+  <slot v-else-if="tabsModel.tabs.length === 0" name="empty"></slot>
 </template>
 
 <script lang="ts" setup>
