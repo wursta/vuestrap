@@ -17,6 +17,10 @@ const routes = [
             {
                 path: "components/tabs/:anchor?",
                 component: () => import("../pages/components/Tabs/TabsDocs.vue")
+            },
+            {
+                path: "components/form-controls/:anchor?",
+                component: () => import("../pages/components/FormControls/FormControlsDocs.vue")
             }
         ]
     }
