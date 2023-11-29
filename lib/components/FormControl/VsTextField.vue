@@ -1,5 +1,5 @@
 <template>
-  <VsFormControl :label="label" :floating-label="floatingLabel">
+  <VsFormControl :label="label" :floating-label="floatingLabel" :hint="hint">
     <VsFormInput v-bind="$attrs" />
     <template v-if="slots.default" #label>
       <slot />
@@ -9,6 +9,9 @@
     </template>
     <template v-if="slots.append" #append>
       <slot name="append" />
+    </template>
+    <template v-if="slots.hint" #hint>
+      <slot name="hint" />
     </template>
   </VsFormControl>
 </template>

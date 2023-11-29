@@ -58,20 +58,20 @@
             </ul>
           </li>
           <li class="nav-item">
-            <router-link to="/components/form-controls" class="nav-link px-0 py-2 vuestrap-docs-sidebar-nav-section">
+            <router-link to="/components/forms" class="nav-link px-0 py-2 vuestrap-docs-sidebar-nav-section">
               <NavigationArrowIcon class="icon"/>
-              Form controls
+              Forms
             </router-link>
-<!--            <ul-->
-<!--                v-if="isRouteStartsWith('/components/tabs')"-->
-<!--                class="nav flex-column border-start ps-3 ms-2 mb-2 vuestrap-docs-sidebar-nav-subsection">-->
-<!--              <li class="nav-item">-->
-<!--                <router-link to="/components/tabs/basic-example" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Basic example</router-link>-->
-<!--                <router-link to="/components/tabs/custom-tab-title" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Custom tab title</router-link>-->
-<!--                <router-link to="/components/tabs/dynamic-tabs" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Dynamic tabs</router-link>-->
-<!--                <router-link to="/components/tabs/properties" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Component properties</router-link>-->
-<!--              </li>-->
-<!--            </ul>-->
+            <ul
+                v-if="isRouteStartsWith('/components/forms')"
+                class="nav flex-column border-start ps-3 ms-2 mb-2 vuestrap-docs-sidebar-nav-subsection">
+              <li class="nav-item">
+                <router-link to="/components/forms/input-based-fields" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Input-based fields</router-link>
+                <router-link to="/components/forms/rangefield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Range</router-link>
+                <router-link to="/components/forms/label-customization" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Label customization</router-link>
+                <router-link to="/components/forms/input-group" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Input group</router-link>
+              </li>
+            </ul>
           </li>
 <!--          <li>-->
 <!--            <router-link to="/components/tabs">Tabs</router-link>-->

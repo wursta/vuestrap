@@ -16,6 +16,7 @@ defineSlots<{
   label(): void
   prepend(): void
   append(): void
+  hint(): void
 }>()
 const slots = useSlots()
 const props = defineProps<FormControlProps>()
@@ -26,6 +27,9 @@ const hasLabel = computed(() => {
 })
 const hasInputGroup = computed(() => {
     return slots.prepend || slots.append
+})
+const hasHint = computed(() => {
+    return props.hint || slots.hint
 })
 const getInputSlot = (): VNode => {
     if (slots.default) {
@@ -57,6 +61,10 @@ const getInputComponents = (): VNode[] => {
     return list
 }
 
+const getHintComponent = (): VNode => {
+    return h("div", {class: "form-text"}, slots.hint ? slots.hint() : props.hint)
+}
+
 const components = computed(() => {
     let list = []
 
@@ -73,6 +81,10 @@ const components = computed(() => {
         } else {
             list.unshift(getLabelSlot())
         }
+    }
+
+    if (hasHint.value) {
+        list.push(getHintComponent())
     }
 
     return list
