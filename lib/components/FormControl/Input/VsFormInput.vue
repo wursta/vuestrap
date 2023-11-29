@@ -1,18 +1,20 @@
 <template>
   <input
-      v-model="localValue"
+      :value="modelValue"
       :type="inputType"
       :class="computedClasses"
+      @input="onInput"
   />
 </template>
 
 <script lang="ts" setup>
 import {InputEmits, InputProps} from "./InputProps"
-import {computed, ref, useAttrs, watch} from "vue"
+import {computed, useAttrs} from "vue"
 
 const props = withDefaults(defineProps<InputProps>(), {
-    modelValue: "",
-    inputType: "text"
+    modelValue: null,
+    inputType: "text",
+    plainText: false
 })
 
 const emit = defineEmits<InputEmits>()
@@ -24,13 +26,19 @@ const computedClasses = computed(() => {
         return attrs.class
     }
 
+    if (props.plainText) {
+        return ["form-control-plaintext"]
+    }
+
     return ["form-control"]
 })
 
-const localValue = ref(props.modelValue)
+const onInput = (event: Event) => {
+    if (!(event.target instanceof HTMLInputElement)) {
+        throw new Error("HTMLInputElement expected as event.target")
+    }
 
-watch(localValue, () => {
-    emit("update:modelValue", localValue.value)
-})
+    emit("update:modelValue", event?.target?.value)
+}
 
 </script>
