@@ -70,6 +70,7 @@
                 <router-link to="/components/forms/rangefield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Range</router-link>
                 <router-link to="/components/forms/label-customization" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Label customization</router-link>
                 <router-link to="/components/forms/input-group" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Input group</router-link>
+                <router-link to="/components/forms/checks-and-radios-fields" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Checks & Radios</router-link>
               </li>
             </ul>
           </li>

@@ -7,7 +7,10 @@
     <p>Also, you can set <code>floating-label</code> prop to enable floating label for your input.
       Do not forget, that bootstrap requires <code>placeholder</code> attribute for floating labels correct work.
     </p>
-    <p><strong>Any attribute you set on <code>vs-text-field</code> will be applied to input element</strong>.</p>
+    <p>
+      <strong>Any attribute you set on <code>vs-text-field</code> will be applied to input element</strong>.
+      So, for example, you can create <code>number</code> field with min and max attributes simply apply them to <code>vs-text-field</code>
+    </p>
     <div class="form-check form-switch mb-3">
       <input id="floating-label-option" v-model="isFloatingLabel" class="form-check-input" type="checkbox">
       <label class="form-check-label" for="floating-label-option">Floating labels</label>
@@ -31,7 +34,7 @@
           :disabled="isDisabled"
           :readonly="isReadonly"
           :plain-text="isPlainText"
-          label="Email address"
+          label="Email type"
           input-type="email"
           placeholder="Enter email"
       />
