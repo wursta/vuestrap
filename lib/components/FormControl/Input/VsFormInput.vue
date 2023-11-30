@@ -1,5 +1,6 @@
 <template>
   <input
+      :id="id"
       :value="modelValue"
       :type="inputType"
       :class="computedClasses"
@@ -10,15 +11,15 @@
 <script lang="ts" setup>
 import {InputEmits, InputProps} from "./InputProps"
 import {computed, useAttrs} from "vue"
+import {IdProps} from "../../IdProps"
 
-const props = withDefaults(defineProps<InputProps>(), {
+const props = withDefaults(defineProps<InputProps & IdProps>(), {
     modelValue: null,
     inputType: "text",
     plainText: false
 })
 
 const emit = defineEmits<InputEmits>()
-
 const attrs = useAttrs()
 
 const computedClasses = computed(() => {

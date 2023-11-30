@@ -7,10 +7,11 @@
   <RangeExample />
   <LabelCustomizationExample />
   <InputGroupExample />
-
+  <CheckAndRadiosExample />
 </template>
 <script setup lang="ts">
 import InputBasedFieldsExample from "./InputBasedFieldsExample.vue"
 import RangeExample from "./RangeExample.vue"
 import LabelCustomizationExample from "./LabelCustomizationExample.vue"
-import InputGroupExample from "./InputGroupExample.vue"</script>
+import InputGroupExample from "./InputGroupExample.vue"
+import CheckAndRadiosExample from "./CheckAndRadiosExample.vue"</script>

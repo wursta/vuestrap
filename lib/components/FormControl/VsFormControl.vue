@@ -6,6 +6,7 @@
 import {computed, defineOptions, h, useAttrs, useSlots, VNode} from "vue"
 import {FormControlProps} from "./FormControlProps"
 import VsEmpty from "../VsEmpty.vue"
+import {IdProps} from "../IdProps"
 
 defineOptions({
     inheritAttrs: false
@@ -19,7 +20,7 @@ defineSlots<{
   hint(): void
 }>()
 const slots = useSlots()
-const props = defineProps<FormControlProps>()
+const props = defineProps<FormControlProps & IdProps>()
 const attrs = useAttrs()
 
 const hasLabel = computed(() => {
@@ -40,10 +41,10 @@ const getInputSlot = (): VNode => {
 
 const getLabelSlot = (): VNode => {
     if (slots.label) {
-        return h("label", {class: "form-label"}, slots.label())
+        return h("label", {class: "form-label", for: props.id}, slots.label())
     }
 
-    return h("label", {class: "form-label"}, props.label)
+    return h("label", {class: "form-label", for: props.id}, props.label)
 }
 
 const getInputComponents = (): VNode[] => {
