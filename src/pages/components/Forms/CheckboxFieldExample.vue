@@ -1,5 +1,8 @@
 <template>
-  <ExampleTabsCard title="Checks & Radios" section-id="checks-and-radios-fields">
+  <ExampleTabsCard title="Checkbox" section-id="checkboxfield" :code="exampleCode">
+    <p>Use <code>vs-checkbox-field</code> to create checkbox field.</p>
+    <p>You can add <code>allow-null</code> prop and the checkbox can accept an <code>indeterminate</code> state.</p>
+
     <div class="d-flex align-items-center gap-3 mb-3">
       <vs-checkbox-field v-model="ch1" label="Checkbox 1"/>
       <button class="btn  btn-sm btn-secondary" @click="setCh1Value(null)">Set NULL</button>
@@ -48,4 +51,6 @@ const setCh1Value = (value: boolean | null) => {
 const setCh2Value = (value: boolean | null) => {
     ch2.value = value
 }
+
+const exampleCode = "<vs-checkbox-field label=\"Checkbox 2\" allow-null/>"
 </script>

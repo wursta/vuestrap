@@ -11,7 +11,7 @@
 <script lang="ts" setup>
 import {InputEmits, InputProps} from "./InputProps"
 import {computed, useAttrs} from "vue"
-import {IdProps} from "../../IdProps"
+import {IdProps} from "../../../IdProps"
 
 const props = withDefaults(defineProps<InputProps & IdProps>(), {
     modelValue: null,

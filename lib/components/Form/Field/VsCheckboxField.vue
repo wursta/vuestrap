@@ -16,12 +16,13 @@
 <script lang="ts" setup>
 import {computed, h, useSlots} from "vue"
 import {CheckboxFieldEmits, CheckboxFieldProps} from "./CheckboxFieldProps"
-import VsEmpty from "../VsEmpty.vue"
-import useId from "../../composables/useId"
-import {IdProps} from "../IdProps"
+import VsEmpty from "../../VsEmpty.vue"
+import useId from "../../../composables/useId"
+import {IdProps} from "../../IdProps"
 
 const props = withDefaults(defineProps<CheckboxFieldProps & IdProps>(), {
-    modelValue: null
+    modelValue: null,
+    allowNull: false
 })
 
 const emit = defineEmits<CheckboxFieldEmits>()

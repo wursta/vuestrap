@@ -5,8 +5,8 @@
 <script lang="ts" setup>
 import {computed, defineOptions, h, useAttrs, useSlots, VNode} from "vue"
 import {FormControlProps} from "./FormControlProps"
-import VsEmpty from "../VsEmpty.vue"
-import {IdProps} from "../IdProps"
+import VsEmpty from "../../../VsEmpty.vue"
+import {IdProps} from "../../../IdProps"
 
 defineOptions({
     inheritAttrs: false
