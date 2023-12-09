@@ -37,7 +37,7 @@
                 <router-link to="/components/alerts/visibility" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Visibilty</router-link>
                 <router-link to="/components/alerts/dismissing" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Dismissing</router-link>
                 <router-link to="/components/alerts/animate" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Animate</router-link>
-                <router-link to="/components/alerts/properties" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Component properties</router-link>
+                <router-link to="/components/alerts/properties" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference</router-link>
               </li>
             </ul>
           </li>
@@ -53,7 +53,7 @@
                 <router-link to="/components/tabs/basic-example" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Basic example</router-link>
                 <router-link to="/components/tabs/custom-tab-title" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Custom tab title</router-link>
                 <router-link to="/components/tabs/dynamic-tabs" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Dynamic tabs</router-link>
-                <router-link to="/components/tabs/properties" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Component properties</router-link>
+                <router-link to="/components/tabs/properties" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference</router-link>
               </li>
             </ul>
           </li>
@@ -66,11 +66,20 @@
                 v-if="isRouteStartsWith('/components/forms')"
                 class="nav flex-column border-start ps-3 ms-2 mb-2 vuestrap-docs-sidebar-nav-subsection">
               <li class="nav-item">
-                <router-link to="/components/forms/input-based-fields" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Input-based fields</router-link>
+                <router-link to="/components/forms/textfield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Text</router-link>
+                <router-link to="/components/forms/numberfield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Number</router-link>
+                <router-link to="/components/forms/datefield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Date</router-link>
+                <router-link to="/components/forms/timefield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Time</router-link>
                 <router-link to="/components/forms/rangefield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Range</router-link>
+                <router-link to="/components/forms/checkboxfield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Checkbox</router-link>
                 <router-link to="/components/forms/label-customization" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Label customization</router-link>
                 <router-link to="/components/forms/input-group" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Input group</router-link>
-                <router-link to="/components/forms/checks-and-radios-fields" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Checks & Radios</router-link>
+                <router-link to="/components/forms/vs-text-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-text-field</router-link>
+                <router-link to="/components/forms/vs-number-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-number-field</router-link>
+                <router-link to="/components/forms/vs-date-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-date-field</router-link>
+                <router-link to="/components/forms/vs-time-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-time-field</router-link>
+                <router-link to="/components/forms/vs-range-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-range-field</router-link>
+                <router-link to="/components/forms/vs-checkbox-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-checkbox-field</router-link>
               </li>
             </ul>
           </li>
