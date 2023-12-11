@@ -1,5 +1,10 @@
 <template>
   <tr>
+    <td>id</td>
+    <td><code>String</code></td>
+    <td>Use to set <code>id</code> attribute on <code>input</code> element and <code>for</code> attribute on <code>label</code> element</td>
+  </tr>
+  <tr>
     <td>label</td>
     <td><code>String</code></td>
     <td>Use to set the content of the generated <code>label</code> element. For customizing you can use default slot</td>

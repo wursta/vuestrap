@@ -9,7 +9,6 @@
     </tr>
     </thead>
     <tbody>
-    <IdPropsRows/>
     <FormControlPropsRows/>
     <InputPropsRows default-input-type-value="range"/>
     </tbody>
@@ -40,6 +39,5 @@
 
 </template>
 <script setup lang="ts">
-import IdPropsRows from "../IdPropsRows.vue"
 import FormControlPropsRows from "./FormControlPropsRows.vue"
 import InputPropsRows from "./InputPropsRows.vue"</script>
