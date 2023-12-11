@@ -9,8 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    <IdPropsRows />
-    <FormControlPropsRows />
+    <FormControlPropsRows/>
     <InputPropsRows default-input-type-value="date"/>
     </tbody>
   </table>
@@ -25,14 +24,12 @@
     </tr>
     </thead>
     <tbody>
-      <FormControlSlotsRows />
+    <FormControlSlotsRows/>
     </tbody>
   </table>
 
 </template>
 <script setup lang="ts">
-import IdPropsRows from "../IdPropsRows.vue"
 import FormControlPropsRows from "./FormControlPropsRows.vue"
 import InputPropsRows from "./InputPropsRows.vue"
-import FormControlSlotsRows from "./FormControlSlotsRows.vue"
-</script>
+import FormControlSlotsRows from "./FormControlSlotsRows.vue"</script>

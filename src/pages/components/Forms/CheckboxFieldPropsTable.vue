@@ -9,16 +9,23 @@
     </tr>
     </thead>
     <tbody>
-    <IdPropsRows/>
     <tr>
-      <td class="text-nowrap">model-value <br /><span class="badge bg-info">v-model</span></td>
+      <td>id</td>
+      <td><code>String</code></td>
+      <td>Use to set <code>id</code> attribute on <code>input</code> element and <code>for</code> attribute on <code>label</code>
+        element
+      </td>
+    </tr>
+    <tr>
+      <td class="text-nowrap">model-value <br/><span class="badge bg-info">v-model</span></td>
       <td class="text-nowrap"><code>Boolean</code></td>
       <td>Input value</td>
     </tr>
     <tr>
       <td>label</td>
       <td><code>String</code></td>
-      <td>Use to set the content of the generated <code>label</code> element. For customizing you can use default slot</td>
+      <td>Use to set the content of the generated <code>label</code> element. For customizing you can use default slot
+      </td>
     </tr>
     <tr>
       <td class="text-nowrap">allow-null</td>
@@ -47,5 +54,4 @@
   </table>
 
 </template>
-<script setup lang="ts">
-import IdPropsRows from "../IdPropsRows.vue"</script>
+<script setup lang="ts"></script>
