@@ -1,5 +1,5 @@
 <template>
-  <conditional-wrapper :condition="wrapperNeeded" tag="div" :class="computedWrapperClasses">
+  <conditional-wrapper :condition="wrapperNeeded" tag="div" :class="computedWrapperClasses" v-bind="wrapperAttrs">
     <input
         :id="computedId"
         :value="value"
@@ -37,6 +37,8 @@ const props = withDefaults(defineProps<CheckboxFieldProps & IdProps>(), {
     uncheckedValue: false,
     strict: true,
     allowNull: false,
+    wrapperClass: "",
+    wrapperAttrs: null
 })
 
 const emit = defineEmits<CheckboxFieldEmits>()
@@ -61,10 +63,14 @@ const computedClasses = computed(() => {
 })
 
 const isChecked = computed(() => {
-    if (props.strict) {
-        return props.modelValue === props.value
+    if (Array.isArray(props.modelValue)) {
+        return props.modelValue.indexOf(props.value) !== -1
     } else {
-        return props.modelValue == props.value
+        if (props.strict) {
+            return props.modelValue === props.value
+        } else {
+            return props.modelValue == props.value
+        }
     }
 })
 
@@ -73,7 +79,7 @@ const hasLabel = computed(() => {
 })
 
 const wrapperNeeded = computed(() => {
-    return !props.button && hasLabel.value
+    return (!props.button && hasLabel.value) || props.switch || props.inline || props.reverse
 })
 
 const labelComponent = computed(() => {
@@ -99,7 +105,20 @@ const onInput = (event: Event) => {
         throw new Error("HTMLInputElement expected as event.target")
     }
 
-    emit("update:modelValue", event?.target?.checked ? props.value : props.uncheckedValue)
+    if (Array.isArray(props.modelValue)) {
+        const clone = [...props.modelValue]
+        if (event?.target?.checked) {
+            clone.push(props.value)
+        } else {
+            const index = clone.indexOf(props.value)
+            if (index != -1) {
+                clone.splice(index, 1)
+            }
+        }
+        emit("update:modelValue", clone)
+    } else {
+        emit("update:modelValue", event?.target?.checked ? props.value : props.uncheckedValue)
+    }
 }
 
 </script>

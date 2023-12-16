@@ -5,14 +5,8 @@
     <p><strong>Be careful</strong>, the prop <code>allow-null</code> does not change the value from null to false, but
       only controls the display of the checkbox null-state.</p>
 
-    <div class="form-check form-switch mb-3">
-      <input id="disabled-option" v-model="isDisabled" class="form-check-input" type="checkbox">
-      <label class="form-check-label" for="disabled-option">Disabled</label>
-    </div>
-    <div class="form-check form-switch mb-3">
-      <input id="switches-option" v-model="isSwitches" class="form-check-input" type="checkbox">
-      <label class="form-check-label" for="switches-option">Switch mode</label>
-    </div>
+    <vs-checkbox-field v-model="isDisabled" label="Disabled" :wrapper-attrs="{'class': 'mb-3'}" switch/>
+    <vs-checkbox-field v-model="isSwitches" label="Switch mode" :wrapper-attrs="{'class': 'mb-3'}" switch/>
 
     <div class="d-flex align-items-center gap-3 mb-3">
       <vs-checkbox-field v-model="ch1" label="Checkbox 1" :disabled="isDisabled" :switch="isSwitches"/>
@@ -27,41 +21,82 @@
       <button class="btn  btn-sm btn-secondary" @click="setCh2Value(false)">Set FALSE</button>
     </div>
     <hr/>
-    Checkbox 1 v-model value: <code>{{ ch1String }}</code>
+    Checkbox 1 v-model value: <code>{{ printVar(ch1) }}</code>
     <br/>
-    Checkbox 2 v-model value: <code>{{ ch2String }}</code>
+    Checkbox 2 v-model value: <code>{{ printVar(ch2) }}</code>
     <hr/>
     <p>You can create checkbox group with same name and different value using prop <code>value</code>.
-    If you want, you can set prop <code>unchecked-value</code> to specify unchecked value (by default: <code>undefined</code>).</p>
-    <p>Also, you can set prop <code>inline</code> to arrange checkboxes in one line or <code>button</code> to render checkboxes as buttons.</p>
+      If you want, you can set prop <code>unchecked-value</code> to specify unchecked value (by default:
+      <code>undefined</code>).</p>
+    <p>Also, you can set prop <code>inline</code> to arrange checkboxes in one line or <code>button</code> to render
+      checkboxes as buttons.</p>
 
-    <div class="form-check form-switch mb-3">
-      <input id="inline-option" v-model="isGroupInline" class="form-check-input" type="checkbox">
-      <label class="form-check-label" for="inline-option">Inline</label>
+    <div class="mb-3">
+      <vs-checkbox-field v-model="isGroupInline" label="Inline" switch inline/>
+      <vs-checkbox-field v-model="isGroupReverse" label="Reverse" switch inline/>
+      <vs-checkbox-field v-model="isGroupBtn" label="As buttons" switch inline/>
     </div>
 
-    <div class="form-check form-switch mb-3">
-      <input id="reverse-option" v-model="isGroupReverse" class="form-check-input" type="checkbox">
-      <label class="form-check-label" for="reverse-option">Reverse</label>
-    </div>
-
-    <div class="form-check form-switch mb-3">
-      <input id="btn-option" v-model="isGroupBtn" class="form-check-input" type="checkbox">
-      <label class="form-check-label" for="btn-option">As buttons</label>
-    </div>
-
-    <vs-checkbox-field v-model="chGroupValue" name="ch1" label="Checkbox 1" value="1" unchecked-value="0" :inline="isGroupInline" :reverse="isGroupReverse" :button="isGroupBtn"/>
-    <vs-checkbox-field v-model="chGroupValue" name="ch1" label="Checkbox 2" value="2" unchecked-value="0" :inline="isGroupInline" :reverse="isGroupReverse" :button="isGroupBtn"/>
-    <vs-checkbox-field v-model="chGroupValue" name="ch1" label="Checkbox 3" value="3" unchecked-value="0" :inline="isGroupInline" :reverse="isGroupReverse" :button="isGroupBtn"/>
-    <vs-checkbox-field v-model="chGroupValue" name="ch1" label="Checkbox 4" value="4" unchecked-value="0" :inline="isGroupInline"  :reverse="isGroupReverse" :button="isGroupBtn" disabled/>
+    <vs-checkbox-field
+        v-model="chGroupValue"
+        name="ch1"
+        label="Checkbox 1"
+        value="1"
+        unchecked-value="0"
+        :inline="isGroupInline"
+        :reverse="isGroupReverse"
+        :button="isGroupBtn"/>
+    <vs-checkbox-field
+        v-model="chGroupValue"
+        name="ch1"
+        label="Checkbox 2"
+        value="2"
+        unchecked-value="0"
+        :inline="isGroupInline"
+        :reverse="isGroupReverse"
+        :button="isGroupBtn"/>
+    <vs-checkbox-field
+        v-model="chGroupValue"
+        name="ch1"
+        label="Checkbox 3"
+        value="3"
+        unchecked-value="0"
+        :inline="isGroupInline"
+        :reverse="isGroupReverse"
+        :button="isGroupBtn"/>
+    <vs-checkbox-field
+        v-model="chGroupValue"
+        name="ch1"
+        label="Checkbox 4"
+        value="4"
+        unchecked-value="0"
+        :inline="isGroupInline"
+        :reverse="isGroupReverse"
+        :button="isGroupBtn"
+        disabled/>
+    <br/>
+    <button class="btn btn-primary mt-3" @click="setChGroupValue('2')">Set value: 2</button>
     <hr/>
-    v-model value: <code>{{ chGroupValueString }}</code>
+    v-model value: <code>{{ printVar(chGroupValue) }}</code>
+    <hr/>
+    <p>You can use an array as a <code>v-model</code> and then the checkbox values will accumulate.</p>
+    <vs-checkbox-field v-model="chGroupArrValue" label="Apple" value="Apple"/>
+    <vs-checkbox-field v-model="chGroupArrValue" label="Banana" value="Banana"/>
+    <vs-checkbox-field v-model="chGroupArrValue" label="Lemon" value="Lemon"/>
+    <button class="btn btn-primary mt-3" @click="setChGroupArrValue(['Banana', 'Lemon'])">
+      Set value: ["Banana", "Lemon"]
+    </button>
+    <hr/>
+    v-model value: <code>{{ printVar(chGroupArrValue) }}</code>
   </ExampleTabsCard>
 </template>
 <script setup lang="ts">
 import ExampleTabsCard from "../../../components/ExampleTabsCard.vue"
 import {VsCheckboxField} from "@lib"
 import {computed, ref} from "vue"
+import useDump from "../../../composables/useDump"
+
+const {printVar} = useDump()
 
 const isDisabled = ref(false)
 const isSwitches = ref(false)
@@ -72,28 +107,21 @@ const isGroupBtn = ref(false)
 const ch1 = ref<boolean | null>(true)
 const ch2 = ref<boolean | null>(null)
 const chGroupValue = ref("1")
-
-const getCheckboxValueString = (val: boolean | string | number | null | undefined): string => {
-    if (val === null) {
-        return "null"
-    }
-
-    if (val === undefined) {
-        return "undefined"
-    }
-
-    return val.toString()
-}
-
-const ch1String = computed(() => getCheckboxValueString(ch1.value))
-const ch2String = computed(() => getCheckboxValueString(ch2.value))
-const chGroupValueString = computed(() => getCheckboxValueString(chGroupValue.value))
+const chGroupArrValue = ref<string[]>([])
 
 const setCh1Value = (value: boolean | null) => {
     ch1.value = value
 }
 const setCh2Value = (value: boolean | null) => {
     ch2.value = value
+}
+
+const setChGroupValue = (value: string) => {
+    chGroupValue.value = value
+}
+
+const setChGroupArrValue = (value: string[]) => {
+    chGroupArrValue.value = value
 }
 
 const exampleCode = computed(() => {
