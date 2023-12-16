@@ -32,6 +32,51 @@
       <td><code>Boolean</code></td>
       <td>If <code>true</code> add <code>indeterminate</code> attribute to input. Default: false</td>
     </tr>
+    <tr>
+      <td>switch</td>
+      <td><code>Boolean</code></td>
+      <td>Enable switch mode. Default: false</td>
+    </tr>
+    <tr>
+      <td>inline</td>
+      <td><code>Boolean</code></td>
+      <td>Enable inline mode. Default: false</td>
+    </tr>
+    <tr>
+      <td>reverse</td>
+      <td><code>Boolean</code></td>
+      <td>Enable reverse mode. Default: false</td>
+    </tr>
+    <tr>
+      <td>button</td>
+      <td><code>Boolean</code></td>
+      <td>Enable buttons mode. Default: false</td>
+    </tr>
+    <tr>
+      <td class="text-nowrap">button-variant</td>
+      <td><code>String</code></td>
+      <td>Buttons color variant in buttons mode</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td><code>String</code> or <code>Number</code> or <code>Boolean</code> or <code>null</code> or <code>undefined</code></td>
+      <td>Checked checkbox value. Default: true</td>
+    </tr>
+    <tr>
+      <td class="text-nowrap">unchecked-value</td>
+      <td><code>String</code> or <code>Number</code> or <code>Boolean</code> or <code>null</code> or <code>undefined</code></td>
+      <td>Unchecked checkbox value. Default: false</td>
+    </tr>
+    <tr>
+      <td>strict</td>
+      <td><code>Boolean</code></td>
+      <td>Enables/Disables a strict mode for checking the checkbox value.when v-model changes. Default: true</td>
+    </tr>
+    <tr>
+      <td class="text-nowrap">wrapper-attrs</td>
+      <td><code>Object</code></td>
+      <td>Attributes applied to wrapper div (.form-check). It could be <code>class</code> or something else...</td>
+    </tr>
     </tbody>
   </table>
 
@@ -54,4 +99,7 @@
   </table>
 
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HtmlTagClassType from "../../../components/HtmlTagClassType.vue"
+import HtmlTagClassDescription from "../../../components/HtmlTagClassDescription.vue"
+</script>

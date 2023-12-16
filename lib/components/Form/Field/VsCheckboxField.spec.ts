@@ -1,7 +1,7 @@
 import {expect, test} from "vitest"
 import {mount} from "@vue/test-utils"
 import VsCheckboxField from "./VsCheckboxField.vue"
-import {ValueType} from "./CheckboxFieldProps"
+import {ModelValueType} from "./CheckboxFieldProps"
 
 test("Check that rendered only input if no props set", () => {
     const wrapper = mount(VsCheckboxField)
@@ -35,6 +35,17 @@ test("Prop: value", () => {
         props: {
             modelValue: "1",
             value: "1"
+        }
+    })
+
+    expect(wrapper.find("input").element.checked).toBe(true)
+})
+
+test("Prop: array value", () => {
+    const wrapper = mount(VsCheckboxField, {
+        props: {
+            modelValue: ["Apple"],
+            value: "Apple"
         }
     })
 
@@ -75,12 +86,12 @@ test("Prop: reverse", () => {
 })
 
 test("Prop: uncheckedValue", () => {
-    let currentValue: ValueType = ""
+    let currentValue: ModelValueType = ""
     const wrapper = mount(VsCheckboxField, {
         props: {
             value: "100",
             uncheckedValue: "-1",
-            "onUpdate:modelValue": (value: ValueType) => currentValue = value
+            "onUpdate:modelValue": (value: ModelValueType) => currentValue = value
         }
     })
     wrapper.find("input").element.checked = true

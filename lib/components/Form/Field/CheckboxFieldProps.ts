@@ -1,6 +1,9 @@
+import {ClassType} from "../../VueTypes"
+
 export type ValueType = boolean | string | number | null | undefined;
+export type ModelValueType = ValueType | ValueType[]
 export interface CheckboxFieldProps {
-    modelValue?: ValueType,
+    modelValue?: ModelValueType,
     label?: string,
     switch?: boolean,
     inline?: boolean,
@@ -11,8 +14,10 @@ export interface CheckboxFieldProps {
     uncheckedValue?: boolean | string | number | null | undefined,
     strict?: boolean,
     allowNull?: boolean,
+    wrapperClass?: ClassType
+    wrapperAttrs?: object | null
 }
 
 export interface CheckboxFieldEmits {
-    (e: "update:modelValue", modelValue: ValueType): void
+    (e: "update:modelValue", modelValue: ModelValueType): void
 }
