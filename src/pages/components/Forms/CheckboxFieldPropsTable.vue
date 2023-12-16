@@ -99,7 +99,4 @@
   </table>
 
 </template>
-<script setup lang="ts">
-import HtmlTagClassType from "../../../components/HtmlTagClassType.vue"
-import HtmlTagClassDescription from "../../../components/HtmlTagClassDescription.vue"
-</script>
+<script setup lang="ts"></script>
