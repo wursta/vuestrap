@@ -1,18 +1,17 @@
 import {expect, test} from "vitest"
 import {mount} from "@vue/test-utils"
-import VsCheckboxField from "./VsCheckboxField.vue"
-import {ModelValueType} from "./CheckboxFieldProps"
+import VsRadioField from "./VsRadioField.vue"
 
 test("Check that rendered only input if no props set", () => {
-    const wrapper = mount(VsCheckboxField)
+    const wrapper = mount(VsRadioField)
     expect(wrapper.findAll("*").length).eq(1)
     expect(wrapper.find("input").exists()).toBe(true)
     expect(wrapper.find("input").classes()).eqls(["form-check-input"])
-    expect(wrapper.find("input").attributes().type).eq("checkbox")
+    expect(wrapper.find("input").attributes().type).eq("radio")
 })
 
 test("Attributes inheritance", () => {
-    const wrapper = mount(VsCheckboxField, {
+    const wrapper = mount(VsRadioField, {
         attrs: {
             name: "test_checkbox_name",
         }
@@ -21,7 +20,7 @@ test("Attributes inheritance", () => {
 })
 
 test("Prop: wrapper-attrs", () => {
-    const wrapper = mount(VsCheckboxField, {
+    const wrapper = mount(VsRadioField, {
         attrs: {
             wrapperAttrs: {
                 class: "test-checkbox-wrapper-class"
@@ -33,7 +32,7 @@ test("Prop: wrapper-attrs", () => {
 })
 
 test("Prop: label", () => {
-    const wrapper = mount(VsCheckboxField, {
+    const wrapper = mount(VsRadioField, {
         props: {
             label: "Test label"
         }
@@ -43,7 +42,7 @@ test("Prop: label", () => {
 })
 
 test("Prop: value", () => {
-    const wrapper = mount(VsCheckboxField, {
+    const wrapper = mount(VsRadioField, {
         props: {
             modelValue: "1",
             value: "1"
@@ -53,30 +52,8 @@ test("Prop: value", () => {
     expect(wrapper.find("input").element.checked).toBe(true)
 })
 
-test("Prop: array value", () => {
-    const wrapper = mount(VsCheckboxField, {
-        props: {
-            modelValue: ["Apple"],
-            value: "Apple"
-        }
-    })
-
-    expect(wrapper.find("input").element.checked).toBe(true)
-})
-
-test("Prop: switch", () => {
-    const wrapper = mount(VsCheckboxField, {
-        props: {
-            switch: true,
-            label: "Test label"
-        }
-    })
-
-    expect(wrapper.find("div").classes()).eqls(["form-check", "form-switch"])
-})
-
 test("Prop: inline", () => {
-    const wrapper = mount(VsCheckboxField, {
+    const wrapper = mount(VsRadioField, {
         props: {
             inline: true,
             label: "Test label"
@@ -87,7 +64,7 @@ test("Prop: inline", () => {
 })
 
 test("Prop: reverse", () => {
-    const wrapper = mount(VsCheckboxField, {
+    const wrapper = mount(VsRadioField, {
         props: {
             reverse: true,
             label: "Test label"
@@ -98,7 +75,7 @@ test("Prop: reverse", () => {
 })
 
 test("Prop: button", () => {
-    const wrapper = mount(VsCheckboxField, {
+    const wrapper = mount(VsRadioField, {
         props: {
             button: true,
             label: "Test label"
@@ -111,7 +88,7 @@ test("Prop: button", () => {
 })
 
 test("Prop: button-variant", () => {
-    const wrapper = mount(VsCheckboxField, {
+    const wrapper = mount(VsRadioField, {
         props: {
             button: true,
             buttonVariant: "primary",
@@ -124,26 +101,8 @@ test("Prop: button-variant", () => {
     expect(wrapper.find("label").classes()).eqls(["btn", "btn-primary"])
 })
 
-test("Prop: uncheckedValue", () => {
-    let currentValue: ModelValueType = ""
-    const wrapper = mount(VsCheckboxField, {
-        props: {
-            value: "100",
-            uncheckedValue: "-1",
-            "onUpdate:modelValue": (value: ModelValueType) => currentValue = value
-        }
-    })
-    wrapper.find("input").element.checked = true
-    wrapper.find("input").trigger("input")
-    expect(currentValue).eq("100")
-
-    wrapper.find("input").element.checked = false
-    wrapper.find("input").trigger("input")
-    expect(currentValue).eq("-1")
-})
-
 test("Prop: strict", () => {
-    const wrapper = mount(VsCheckboxField, {
+    const wrapper = mount(VsRadioField, {
         props: {
             modelValue: 100,
             value: "100",
@@ -152,7 +111,7 @@ test("Prop: strict", () => {
     })
     expect(wrapper.find("input").element.checked).toBe(false)
 
-    const wrapper2 = mount(VsCheckboxField, {
+    const wrapper2 = mount(VsRadioField, {
         props: {
             modelValue: "100",
             value: "100",
@@ -161,7 +120,7 @@ test("Prop: strict", () => {
     })
     expect(wrapper2.find("input").element.checked).toBe(true)
 
-    const wrapper3 = mount(VsCheckboxField, {
+    const wrapper3 = mount(VsRadioField, {
         props: {
             modelValue: 100,
             value: "100",
@@ -170,23 +129,4 @@ test("Prop: strict", () => {
         }
     })
     expect(wrapper3.find("input").element.checked).toBe(true)
-})
-
-test("Prop: allowNull", () => {
-    const wrapper = mount(VsCheckboxField, {
-        props: {
-            modelValue: null,
-            allowNull: true
-        }
-    })
-
-    expect(Object.prototype.hasOwnProperty.call(wrapper.find("input").attributes(), "indeterminate")).toBe(true)
-
-    const wrapper2 = mount(VsCheckboxField, {
-        props: {
-            modelValue: null,
-        }
-    })
-
-    expect(Object.prototype.hasOwnProperty.call(wrapper2.find("input").attributes(), "indeterminate")).toBe(false)
 })
