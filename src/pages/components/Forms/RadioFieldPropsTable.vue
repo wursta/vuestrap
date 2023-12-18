@@ -1,6 +1,6 @@
 <template>
   <table class="table table-bordered table-striped caption-top">
-    <caption><code>vs-checkbox-field</code> component props</caption>
+    <caption><code>vs-radio-field</code> component props</caption>
     <thead>
     <tr>
       <th>Option</th>
@@ -18,7 +18,7 @@
     </tr>
     <tr>
       <td class="text-nowrap">model-value <br/><span class="badge bg-info">v-model</span></td>
-      <td class="text-nowrap"><code>Boolean</code> or <code>String</code> or <code>Number</code> or <code>Array</code></td>
+      <td class="text-nowrap"><code>Boolean</code> or <code>String</code> or <code>Number</code></td>
       <td>Input value</td>
     </tr>
     <tr>
@@ -26,16 +26,6 @@
       <td><code>String</code></td>
       <td>Use to set the content of the generated <code>label</code> element. For customizing you can use default slot
       </td>
-    </tr>
-    <tr>
-      <td class="text-nowrap">allow-null</td>
-      <td><code>Boolean</code></td>
-      <td>If <code>true</code> add <code>indeterminate</code> attribute to input. Default: false</td>
-    </tr>
-    <tr>
-      <td>switch</td>
-      <td><code>Boolean</code></td>
-      <td>Enable switch mode. Default: false</td>
     </tr>
     <tr>
       <td>inline</td>
@@ -63,11 +53,6 @@
       <td>Checked checkbox value. Default: true</td>
     </tr>
     <tr>
-      <td class="text-nowrap">unchecked-value</td>
-      <td><code>String</code> or <code>Number</code> or <code>Boolean</code> or <code>null</code> or <code>undefined</code></td>
-      <td>Unchecked checkbox value. Default: false</td>
-    </tr>
-    <tr>
       <td>strict</td>
       <td><code>Boolean</code></td>
       <td>Enables / Disables a strict mode for checking the checkbox value.when v-model changes. Default: true</td>
@@ -81,7 +66,7 @@
   </table>
 
   <table class="table table-bordered table-striped caption-top">
-    <caption><code>vs-checkbox-field</code> component slots</caption>
+    <caption><code>vs-radio-field</code> component slots</caption>
     <thead>
     <tr>
       <th>Slot name</th>

@@ -72,6 +72,7 @@
                 <router-link to="/components/forms/timefield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Time</router-link>
                 <router-link to="/components/forms/rangefield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Range</router-link>
                 <router-link to="/components/forms/checkboxfield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Checkbox</router-link>
+                <router-link to="/components/forms/radiofield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Radio</router-link>
                 <router-link to="/components/forms/label-customization" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Label customization</router-link>
                 <router-link to="/components/forms/input-group" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Input group</router-link>
                 <router-link to="/components/forms/vs-text-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-text-field</router-link>
@@ -80,6 +81,7 @@
                 <router-link to="/components/forms/vs-time-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-time-field</router-link>
                 <router-link to="/components/forms/vs-range-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-range-field</router-link>
                 <router-link to="/components/forms/vs-checkbox-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-checkbox-field</router-link>
+                <router-link to="/components/forms/vs-radio-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-radio-field</router-link>
               </li>
             </ul>
           </li>

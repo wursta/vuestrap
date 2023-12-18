@@ -9,6 +9,7 @@
   <TimeFieldExample/>
   <RangeFieldExample/>
   <CheckboxFieldExample/>
+  <RadioFieldExample/>
   <LabelCustomizationExample/>
   <InputGroupExample/>
   <FieldsReferences/>
@@ -23,4 +24,5 @@ import RangeFieldExample from "./RangeFieldExample.vue"
 import NumberFieldExample from "./NumberFieldExample.vue"
 import DateFieldExample from "./DateFieldExample.vue"
 import TimeFieldExample from "./TimeFieldExample.vue"
-import CheckboxFieldExample from "./CheckboxFieldExample.vue"</script>
+import CheckboxFieldExample from "./CheckboxFieldExample.vue"
+import RadioFieldExample from "./RadioFieldExample.vue"</script>
