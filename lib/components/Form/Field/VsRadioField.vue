@@ -92,7 +92,7 @@ const onInput = (event: Event) => {
         throw new Error("HTMLInputElement expected as event.target")
     }
 
-    emit("update:modelValue", event?.target?.checked ? props.value : undefined)
+    emit("update:model-value", event?.target?.checked ? props.value : undefined)
 }
 
 </script>

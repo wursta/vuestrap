@@ -12,5 +12,5 @@ export interface RadioFieldProps {
 }
 
 export interface RadioFieldEmits {
-    (e: "update:modelValue", modelValue: ModelValueType): void
+    (e: "update:model-value", modelValue: ModelValueType): void
 }

@@ -11,27 +11,44 @@
 <script lang="ts" setup>
 import {InputEmits, InputProps} from "./InputProps"
 import {computed, useAttrs} from "vue"
-import {IdProps} from "../../../IdProps"
+import {ValidationInputProps} from "./ValidationInputProps"
+import {IdRequiredInternalProps} from "../../../_internal/IdRequiredInternalProps"
 
-const props = withDefaults(defineProps<InputProps & IdProps>(), {
+const props = withDefaults(defineProps<InputProps & ValidationInputProps & IdRequiredInternalProps>(), {
     modelValue: null,
     inputType: "text",
-    plainText: false
+    plainText: false,
+    isValid: null,
+    markValid: false,
+    markInvalid: true
 })
 
 const emit = defineEmits<InputEmits>()
 const attrs = useAttrs()
 
 const computedClasses = computed(() => {
+    const classes = []
     if (attrs.class) {
-        return attrs.class
+        classes.push(attrs.class)
     }
 
-    if (props.plainText) {
-        return ["form-control-plaintext"]
+    if (attrs.class !== "form-range") {
+        if (props.plainText) {
+            classes.push("form-control-plaintext")
+        } else {
+            classes.push("form-control")
+        }
     }
 
-    return ["form-control"]
+    if (props.markInvalid && props.isValid === false) {
+        classes.push("is-invalid")
+    }
+
+    if (props.markValid && props.isValid === true) {
+        classes.push("is-valid")
+    }
+
+    return classes
 })
 
 const onInput = (event: Event) => {
@@ -39,7 +56,8 @@ const onInput = (event: Event) => {
         throw new Error("HTMLInputElement expected as event.target")
     }
 
-    emit("update:modelValue", event?.target?.value)
-}
+    const newValue = event?.target?.value
 
+    emit("update:model-value", newValue)
+}
 </script>

@@ -1,6 +1,7 @@
 import {expect, test} from "vitest"
-import {mount} from "@vue/test-utils"
+import {mount, VueWrapper} from "@vue/test-utils"
 import VsTextField from "./VsTextField.vue"
+import {InputFieldValueType} from "./InputFieldProps"
 
 test("Check that rendered only input if no props set", () => {
     const wrapper = mount(VsTextField)
@@ -142,6 +143,15 @@ test("Slot: prepend", () => {
     expect(wrapper.find(".input-group").find(".input-group-text").text()).eq("Test prepend")
 })
 
+test("Prop: prepend", () => {
+    const wrapper = mount(VsTextField, {
+        props: {
+            prepend: "Test prepend"
+        }
+    })
+    expect(wrapper.find(".input-group").find(".input-group-text").text()).eq("Test prepend")
+})
+
 test("Slot: append", () => {
     const wrapper = mount(VsTextField, {
         slots: {
@@ -151,4 +161,40 @@ test("Slot: append", () => {
         }
     })
     expect(wrapper.find(".input-group").find(".input-group-text").text()).eq("Test append")
+})
+
+test("Prop: append", () => {
+    const wrapper = mount(VsTextField, {
+        props: {
+            append: "Test append"
+        }
+    })
+    expect(wrapper.find(".input-group").find(".input-group-text").text()).eq("Test append")
+})
+
+test("Validation: Required rule", async () => {
+    const wrapper: VueWrapper = mount(VsTextField, {
+        props: {
+            modelValue: "Test",
+            rules: ["required"],
+            "onUpdate:model-value": (value: InputFieldValueType) => wrapper.setProps({modelValue: value})
+        }
+    })
+
+    await wrapper.find("input").setValue("")
+    expect(wrapper.find("input").classes().indexOf("is-invalid")).toBeGreaterThan(-1)
+    expect(wrapper.find(".invalid-feedback").exists()).toBe(true)
+    expect(wrapper.find(".invalid-feedback").text()).eq("Required validator error")
+
+    await wrapper.find("input").setValue("Test")
+    expect(wrapper.find("input").classes().indexOf("is-valid")).eq(-1)
+
+    await wrapper.setProps({markValid: true})
+    expect(wrapper.find("input").classes().indexOf("is-valid")).toBeGreaterThan(-1)
+    expect(wrapper.find(".invalid-feedback").exists()).toBe(false)
+    expect(wrapper.find(".valid-feedback").exists()).toBe(false)
+
+    await wrapper.setProps({validMessage: "It's ok!"})
+    expect(wrapper.find(".valid-feedback").exists()).toBe(true)
+    expect(wrapper.find(".valid-feedback").text()).eq("It's ok!")
 })

@@ -1,5 +1,5 @@
 <template>
-  <component :is="component" />
+  <component :is="component"/>
 </template>
 
 <script lang="ts" setup>
@@ -7,9 +7,12 @@ import {computed, h, VNode} from "vue"
 
 interface Props {
   condition: boolean,
-  tag: string
+  tag?: string
 }
-const props = defineProps<Props>()
+
+const props = withDefaults(defineProps<Props>(), {
+    tag: "div"
+})
 const slots = defineSlots<{
   default(): VNode
 }>()

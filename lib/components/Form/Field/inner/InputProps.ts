@@ -1,10 +1,11 @@
-type ValueType = string | number | null;
+import {InputFieldValueType} from "../InputFieldProps"
+
 export interface InputProps {
-    modelValue?: ValueType,
+    modelValue?: InputFieldValueType,
     inputType?: string
     plainText?: boolean
 }
 
 export interface InputEmits {
-    (e: "update:modelValue", modelValue: ValueType): void
+    (e: "update:model-value", modelValue: InputFieldValueType): void
 }

@@ -130,7 +130,7 @@ test("Prop: uncheckedValue", () => {
         props: {
             value: "100",
             uncheckedValue: "-1",
-            "onUpdate:modelValue": (value: ModelValueType) => currentValue = value
+            "onUpdate:model-value": (value: ModelValueType) => currentValue = value
         }
     })
     wrapper.find("input").element.checked = true
