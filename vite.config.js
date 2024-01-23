@@ -30,7 +30,7 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            "@lib": fileURLToPath(new URL("./lib/main.ts", import.meta.url))
+            "@lib": fileURLToPath(new URL("./lib/main.ts", import.meta.url)),
         }
     },
     test: {

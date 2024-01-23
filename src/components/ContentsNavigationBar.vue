@@ -75,6 +75,7 @@
                 <router-link to="/components/forms/radiofield" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Radio</router-link>
                 <router-link to="/components/forms/label-customization" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Label customization</router-link>
                 <router-link to="/components/forms/input-group" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Input group</router-link>
+                <router-link to="/components/forms/validation" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Validation</router-link>
                 <router-link to="/components/forms/vs-text-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-text-field</router-link>
                 <router-link to="/components/forms/vs-number-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-number-field</router-link>
                 <router-link to="/components/forms/vs-date-field-reference" class="nav-link fs-sm py-1 ps-1 pe-0 mb-1" @click="toggleContentSidebar">Reference: vs-date-field</router-link>

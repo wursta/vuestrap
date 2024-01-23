@@ -16,5 +16,5 @@ export interface CheckboxFieldProps {
 }
 
 export interface CheckboxFieldEmits {
-    (e: "update:modelValue", modelValue: ModelValueType): void
+    (e: "update:model-value", modelValue: ModelValueType): void
 }

@@ -12,6 +12,7 @@
   <RadioFieldExample/>
   <LabelCustomizationExample/>
   <InputGroupExample/>
+  <ValidationExample/>
   <FieldsReferences/>
 
 </template>
@@ -25,4 +26,5 @@ import NumberFieldExample from "./NumberFieldExample.vue"
 import DateFieldExample from "./DateFieldExample.vue"
 import TimeFieldExample from "./TimeFieldExample.vue"
 import CheckboxFieldExample from "./CheckboxFieldExample.vue"
-import RadioFieldExample from "./RadioFieldExample.vue"</script>
+import RadioFieldExample from "./RadioFieldExample.vue"
+import ValidationExample from "./ValidationExample.vue"</script>

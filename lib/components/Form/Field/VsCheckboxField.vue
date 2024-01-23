@@ -115,9 +115,9 @@ const onInput = (event: Event) => {
                 clone.splice(index, 1)
             }
         }
-        emit("update:modelValue", clone)
+        emit("update:model-value", clone)
     } else {
-        emit("update:modelValue", event?.target?.checked ? props.value : props.uncheckedValue)
+        emit("update:model-value", event?.target?.checked ? props.value : props.uncheckedValue)
     }
 }
 

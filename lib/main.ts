@@ -13,5 +13,6 @@ const plugin: Plugin = {
 }
 
 export * from "./components"
+export * from "./composables"
 export * from "./locale"
 export {plugin as VuestrapPlugin}
