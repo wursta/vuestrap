@@ -19,4 +19,14 @@
     <td><code>Boolean</code></td>
     <td>Wrap a pair of <code>input</code> and <code>label</code> elements in <code>.form-floating</code> to enable floating labels. A <code>placeholder</code> attribute is required.</td>
   </tr>
+  <tr>
+    <td>prepend</td>
+    <td><code>String</code></td>
+    <td>Use to add input-group and prepend field with some text</td>
+  </tr>
+  <tr>
+    <td>append</td>
+    <td><code>String</code></td>
+    <td>Use to add input-group and append field with some text</td>
+  </tr>
 </template>

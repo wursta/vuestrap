@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    <FormControlPropsRows />
+    <InputFieldPropsRows />
     <InputPropsRows default-input-type-value="time"/>
     </tbody>
   </table>
@@ -30,6 +30,6 @@
 
 </template>
 <script setup lang="ts">
-import FormControlPropsRows from "./FormControlPropsRows.vue"
+import InputFieldPropsRows from "./InputFieldPropsRows.vue"
 import InputPropsRows from "./InputPropsRows.vue"
 import FormControlSlotsRows from "./FormControlSlotsRows.vue"</script>

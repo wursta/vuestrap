@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    <FormControlPropsRows/>
+    <InputFieldPropsRows/>
     <InputPropsRows default-input-type-value="range"/>
     </tbody>
   </table>
@@ -39,5 +39,5 @@
 
 </template>
 <script setup lang="ts">
-import FormControlPropsRows from "./FormControlPropsRows.vue"
+import InputFieldPropsRows from "./InputFieldPropsRows.vue"
 import InputPropsRows from "./InputPropsRows.vue"</script>
