@@ -1,5 +1,9 @@
 <template>
   <ExampleTabsCard title="Validation" section-id="validation" :code="exampleCode">
+    <p>Every <code>vs-...-field</code> component has built-in validation. You can manage validation with <code>rules</code> prop.</p>
+    <p>Some rules are automatically applied if the field contains certain attributes. For example, the <code>required</code> attribute will make the field required.</p>
+    <p>You can read more about validation in <a href="#">this</a> article.</p>
+
     <vs-checkbox-field v-model="isTooltipFeedback" label="Tooltip validation messages" :wrapper-attrs="{'class': 'mb-3'}" switch/>
     <div class="row g-3">
       <div class="col-md-4">
@@ -49,7 +53,7 @@
         </div>
       </div>
       <div class="col-12">
-        <button class="btn btn-primary" @click="validate">Submit form</button>
+        <button class="btn btn-primary" @click="validate">Validate form</button>
         <button class="ms-1 btn btn-secondary" @click="reset">Reset validation</button>
         <button class="ms-1 btn btn-dark" @click="formValues.firstName = 'Olaf'">Set First name = 'Olaf'</button>
         <button class="ms-1 btn btn-dark" @click="formValues.firstName = 'Mark'">Set First name = 'Mark'</button>
@@ -83,11 +87,11 @@ const isTooltipFeedback = ref(false)
 const {isValid, validate, reset, errors} = useValidation()
 
 const exampleCode = computed(() => {
-
-    return `<vs-text-field v-model="firstName" label="First name" required valid-message="Looks good!"/>
-<vs-text-field v-model="lastName" label="Last name" required valid-message="Looks good!"/>
-<vs-text-field v-model="city" label="City" required invalid-message="Please provide a valid city." />
-<vs-text-field v-model="zip" label="Zip" required invalid-message="Please provide a valid zip." />
+    const tooltipFeedbackAttr = isTooltipFeedback.value ? " tooltip-feedback" : ""
+    return `<vs-text-field v-model="firstName" label="First name" required valid-message="Looks good!"${tooltipFeedbackAttr}/>
+<vs-text-field v-model="lastName" label="Last name" required valid-message="Looks good!"${tooltipFeedbackAttr}/>
+<vs-text-field v-model="city" label="City" required invalid-message="Please provide a valid city."${tooltipFeedbackAttr}/>
+<vs-text-field v-model="zip" label="Zip" required invalid-message="Please provide a valid zip."${tooltipFeedbackAttr}/>
 `
 })
 </script>
