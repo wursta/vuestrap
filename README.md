@@ -42,7 +42,7 @@ createApp(App)
     .mount("#app")
 ```
 
-Add vustrap and bootstrap styles ([Boostrap customization docs](https://getbootstrap.com/docs/5.3/customize/sass/#importing))
+Add vuestrap and bootstrap styles ([Boostrap customization docs](https://getbootstrap.com/docs/5.3/customize/sass/#importing))
 ```scss
 @import "../node_modules/vustrap-b5/scss/vuestrap";
 @import "../node_modules/bootstrap/scss/bootstrap";
