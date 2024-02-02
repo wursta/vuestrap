@@ -29,7 +29,7 @@ Add Vuestrap
 npm i vuestrap-b5
 ```
 
-Add vuewtrap plugin to app
+Add vuestrap plugin to app
 ```js
 // main.js
 import {createApp} from "vue"
